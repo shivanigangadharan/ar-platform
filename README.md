@@ -1,2 +1,3 @@
-# blank
-react template
+# Web platform to buy AR models
+
+Made using ReactJS

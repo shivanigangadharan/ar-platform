@@ -14,6 +14,9 @@ const Box = styled.div`
     margin-top: 5%;
     padding: 3%;
 `
+const Options = styled.div`
+
+`
 function Main() {
     const [word, setWord] = useState(null);
     console.log("Searched keyword = ", word);
@@ -22,6 +25,11 @@ function Main() {
             <Box>
                 <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search AR models" />
                 <br /><br />
+                <Options hidden={word === null ? false : true}>
+                    <button> FREE </button>
+                    <button> PAID </button>
+                    <button> CUSTOMIZED </button>
+                </Options>
                 <Card text={word} />
                 <br /><br />
             </Box>

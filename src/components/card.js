@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button, Input } from 'antd';
+import { Button, Input, Checkbox } from 'antd';
+import { Link } from 'react-router-dom';
+import { Radio } from 'antd';
 
 const ImgCard = styled.div`
     box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
@@ -36,8 +38,12 @@ const IP = styled(Input)`
 function Card(props) {
     const [keyword, setKeyWord] = useState('Machine');
     const [component, setComponent] = useState(false);
+    const [radio, setRadio] = useState('');
+    const [label, setLabel] = useState();
+
     // const tt = imgs.titles.some(el => el.toLocaleLowerCase() === props.text.toLocaleLowerCase());
-    console.log("Searched model = = ", props.text);
+
+    console.log("Label = ", label);
     var flag = 0;
     for (var i = 0; i < 4; i++) {
         if (imgs.titles[i] == props.text) {
@@ -57,8 +63,34 @@ function Card(props) {
             <ReqBox>
                 <h2> The model you searched for is unavailable. You can request for the same, here: </h2>
                 <form>
-                    <IP type="text" placeholder="Enter your name" />
-                    <IP type="text" placeholder="Enter email id" /><br />
+                    <IP type="text" placeholder="Enter your name" required />
+                    <IP type="text" placeholder="Enter email id" required /><br />
+                    <IP type="number" required placeholder="Enter phone number" required /><br />
+                    <IP type="text" placeholder="Organization name" required /><br />
+                    <h3> Project details </h3>
+                    <ul>
+                        <li>
+                            <IP type="text" placeholder="Model name" required />
+                        </li>
+                        <li><IP type="text" placeholder="Brief description of the project" required />
+                        </li>
+                        <li>
+                            <IP type="text" placeholder="Animation details (if any)" />
+                        </li>
+                        <li><IP type="text" placeholder="Tutorial details (if any)" required />
+                        </li>
+                        <li>
+                            <Radio.Group onChange={e => { setRadio(e.target.value) }}>
+                                <Radio value="Marker"> Marker </Radio>
+                                <Radio value="Markerless"> Markerless </Radio>
+                            </Radio.Group>
+                        </li>
+                        <li>
+                            <Checkbox onChange={e => { setLabel(e.target.checked) }}>
+                                Labels </Checkbox>
+                        </li>
+                    </ul>
+
                     <Button type="submit"> Request model </Button>
                 </form>
             </ReqBox>

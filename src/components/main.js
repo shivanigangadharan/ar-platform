@@ -5,7 +5,7 @@ import Card from './card';
 
 const { Search } = Input;
 const MySearch = styled(Search)`
-    width: 100px;
+    width: 50%;
     margin-top:3%;
 `
 const Box = styled.div`

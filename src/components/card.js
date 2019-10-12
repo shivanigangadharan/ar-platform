@@ -32,7 +32,6 @@ const ReqBox = styled.div`
 const IP = styled(Input)`
     width: 50%;
     margin: 2%;
-    border: 3px solid green;
 `
 function Card(props) {
     const [keyword, setKeyWord] = useState('Machine');
@@ -59,7 +58,7 @@ function Card(props) {
                 <h2> The model you searched for is unavailable. You can request for the same, here: </h2>
                 <form>
                     <IP type="text" placeholder="Enter your name" />
-                    <IP type="text" placeholder="Enter email id" />
+                    <IP type="text" placeholder="Enter email id" /><br />
                     <Button type="submit"> Request model </Button>
                 </form>
             </ReqBox>

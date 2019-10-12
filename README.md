@@ -1,1 +1,2 @@
-# ar-platform
+# blank
+react template

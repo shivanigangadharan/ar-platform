@@ -89,6 +89,10 @@ function Card(props) {
     // const tt = imgs.titles.some(el => el.toLocaleLowerCase() === props.text.toLocaleLowerCase());
 
     console.log("Label = ", label);
+    const min = 1;
+    const max = 7;
+    // var code = Math.random() * (max - min);
+    var code = 1251204;
     var flag = 0;
     for (var i = 0; i < 4; i++) {
         if (imgs.titles[i] == props.text) {
@@ -97,15 +101,18 @@ function Card(props) {
                     <Img src={imgs.srcs[i]} />
                     <br /><br />
                     <Title> {props.text} </Title><br /><br />
-                    <Button type="primary" onClick={e => setComponent(true)}> Buy </Button>
+                    <Button type="primary" onClick={e => setComponent(true)}> Buy </Button><br /><br />
+                    <div hidden={!component}>Your unique code is : {code} </div>
+
+
                 </ImgCard>
             )
             flag = flag + 1;
         }
     }
-    const min = 1;
-    const max = 100;
-    var code = min + Math.random() * (max - min);
+
+
+
     if (props.text != null && flag == 0) {
         return (
             <ReqBox>

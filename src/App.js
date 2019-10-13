@@ -9,7 +9,14 @@ import { ApolloProvider } from 'react-apollo';
 import Free from './components/free';
 import Paid from './components/paid';
 import Customized from './components/customized';
+import styled from 'styled-components';
 
+const Footer = styled.div`
+    background: black;
+    color: white;
+    margin-top: 20%;
+    padding: 3%;
+`
 function App() {
   const client = new ApolloClient({
     uri: "https://ar-platform.herokuapp.com/v1/graphql",
@@ -33,6 +40,11 @@ function App() {
           </Switch>
         </Router>
       </div>
+      <Footer>
+        Developed by:- <br /><br />Team tagAR<br />
+        Bharati Vidyapeeth's College of Engineering <br />
+        2019
+      </Footer>
     </ApolloProvider>
   );
 }

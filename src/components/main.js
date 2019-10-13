@@ -49,6 +49,7 @@ function Main() {
                 <Card text={word} />
                 <br /><br />
             </Box>
+
         </center>
     )
 }

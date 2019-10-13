@@ -20,7 +20,7 @@ const Options = styled.div`
 `
 const Btns = styled(Button)`
     font-size: 130%;
-    padding: 30px;
+    padding: 2%;
     margin: 3%;
 `
 function Main() {

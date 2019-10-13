@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+const Card = styled.div`
+    box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
+    width: 30%;
+    margin-top: 4%;
+    `
 
 function Customized() {
     return (
-        <div>
-            <h2> Customized </h2>
-        </div>
+        <center>
+            <Card> Customized Models</Card>
+        </center>
     )
 }
 

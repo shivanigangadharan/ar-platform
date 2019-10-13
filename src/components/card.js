@@ -103,7 +103,9 @@ function Card(props) {
             flag = flag + 1;
         }
     }
-    var code = 12345678;
+    const min = 1;
+    const max = 100;
+    var code = min + Math.random() * (max - min);
     if (props.text != null && flag == 0) {
         return (
             <ReqBox>

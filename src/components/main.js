@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 import Card from './card';
+import { Link } from 'react-router-dom';
 
 const { Search } = Input;
 const MySearch = styled(Search)`
@@ -17,6 +18,11 @@ const Box = styled.div`
 const Options = styled.div`
 
 `
+const Btns = styled(Button)`
+    font-size: 130%;
+    padding: 30px;
+    margin: 3%;
+`
 function Main() {
     const [word, setWord] = useState(null);
     console.log("Searched keyword = ", word);
@@ -26,9 +32,15 @@ function Main() {
                 <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search AR models" />
                 <br /><br />
                 <Options hidden={word === null ? false : true}>
-                    <button> FREE </button>
-                    <button> PAID </button>
-                    <button> CUSTOMIZED </button>
+                    <Link to="/free">
+                        <Btns type="primary"> FREE </Btns>
+                    </Link>
+                    <Link to="/paid">
+                        <Btns type="primary"> PAID </Btns>
+                    </Link><Link to="/customized">
+                        <Btns type="primary"> CUSTOMIZED </Btns>
+                    </Link>
+
                 </Options>
                 <Card text={word} />
                 <br /><br />

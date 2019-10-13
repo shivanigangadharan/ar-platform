@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button, Input, Checkbox } from 'antd';
+import { Button, Input, Checkbox, Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
 import { Radio } from 'antd';
+import { flowRight as compose } from 'lodash';
+import { addFormData } from '../queries/queries';
+import { graphql } from 'react-apollo';
 
 const ImgCard = styled.div`
     box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
@@ -35,12 +38,54 @@ const IP = styled(Input)`
     width: 50%;
     margin: 2%;
 `
+
 function Card(props) {
+    // search bar word:
     const [keyword, setKeyWord] = useState('Machine');
+    // card component:
     const [component, setComponent] = useState(false);
-    const [radio, setRadio] = useState('');
+
+    // form value's states:
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [organization, setOrganization] = useState('');
+    const [model, setModel] = useState('');
+    const [description, setDescription] = useState('');
+    const [animation, setAnimation] = useState('');
+    const [tutorial, setTutorial] = useState('');
+    const [marker, setMarker] = useState('');
     const [label, setLabel] = useState();
 
+    function handleSubmit() {
+        console.log("handle submit called");
+        console.log("Name = ", name);
+        console.log("email = ", email);
+        console.log("phone = ", phone);
+        console.log("org = ", organization);
+        console.log("model = ", model);
+        console.log("desc = ", description);
+        console.log("anim = ", animation);
+        console.log("tuto = ", tutorial);
+        console.log("marker = ", marker);
+        console.log("label = ", label);
+        props.addFormData({
+            variables: {
+                Tutorial: tutorial,
+                PhoneNumber: phone,
+                Organization: organization,
+                Name: name,
+                ModelName: model,
+                Marker: marker,
+                Label: label,
+                Email: email,
+                Description: description,
+                Code: code,
+                Animation: animation,
+            }
+        });
+
+    }
     // const tt = imgs.titles.some(el => el.toLocaleLowerCase() === props.text.toLocaleLowerCase());
 
     console.log("Label = ", label);
@@ -58,29 +103,30 @@ function Card(props) {
             flag = flag + 1;
         }
     }
+    var code = 12345678;
     if (props.text != null && flag == 0) {
         return (
             <ReqBox>
                 <h2> The model you searched for is unavailable. You can request for the same, here: </h2>
-                <form>
-                    <IP type="text" placeholder="Enter your name" required />
-                    <IP type="text" placeholder="Enter email id" required /><br />
-                    <IP type="number" required placeholder="Enter phone number" required /><br />
-                    <IP type="text" placeholder="Organization name" required /><br />
+                <form onSubmit={handleSubmit}>
+                    <IP type="text" placeholder="Enter your name" onChange={e => { setName(e.target.value) }} required />
+                    <IP type="text" placeholder="Enter email id" onChange={e => { setEmail(e.target.value) }} required /><br />
+                    <IP type="number" required placeholder="Enter phone number" onChange={e => { setPhone(e.target.value) }} required /><br />
+                    <IP type="text" placeholder="Organization name" onChange={e => { setOrganization(e.target.value) }} /><br />
                     <h3> Project details </h3>
                     <ul>
                         <li>
-                            <IP type="text" placeholder="Model name" required />
+                            <IP type="text" onChange={e => { setModel(e.target.value) }} placeholder="Model name" required />
                         </li>
-                        <li><IP type="text" placeholder="Brief description of the project" required />
-                        </li>
-                        <li>
-                            <IP type="text" placeholder="Animation details (if any)" />
-                        </li>
-                        <li><IP type="text" placeholder="Tutorial details (if any)" required />
+                        <li><IP type="text" onChange={e => { setDescription(e.target.value) }} placeholder="Brief description of the project" required />
                         </li>
                         <li>
-                            <Radio.Group onChange={e => { setRadio(e.target.value) }}>
+                            <IP type="text" onChange={e => { setAnimation(e.target.value) }} placeholder="Animation details (if any)" />
+                        </li>
+                        <li><IP type="text" onChange={e => { setTutorial(e.target.value) }} placeholder="Tutorial details (if any)" />
+                        </li>
+                        <li>
+                            <Radio.Group onChange={e => { setMarker(e.target.value) }}>
                                 <Radio value="Marker"> Marker </Radio>
                                 <Radio value="Markerless"> Markerless </Radio>
                             </Radio.Group>
@@ -91,7 +137,7 @@ function Card(props) {
                         </li>
                     </ul>
 
-                    <Button type="submit"> Request model </Button>
+                    <Button type="submit" htmlType="submit"> Request model </Button>
                 </form>
             </ReqBox>
         )
@@ -104,4 +150,6 @@ function Card(props) {
     )
 }
 
-export default Card;
+export default compose(
+    graphql(addFormData, { name: "addFormData" }),
+)(Card);

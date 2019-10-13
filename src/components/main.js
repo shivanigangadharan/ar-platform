@@ -21,6 +21,8 @@ const Options = styled.div`
 const Btns = styled(Button)`
     font-size: 130%;
     padding: 1%;
+    padding-top:1%;
+    padding-bottom: 1%;
     margin: 3%;
     text-align:center;
     vertical-align:middle;

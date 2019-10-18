@@ -32,7 +32,7 @@ const imgs = {
 const ReqBox = styled.div`
     box-shadow: 1px 1px 3px 1px lightgray;
     padding: 2%;
-    width: 50%;
+    width: 100%;
 `
 const IP = styled(Input)`
     width: 50%;

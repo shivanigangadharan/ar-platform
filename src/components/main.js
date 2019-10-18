@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const { Search } = Input;
 const MySearch = styled(Search)`
-    width: 50%;
+    width: 100%;
     margin-top:3%;
 `
 const Box = styled.div`

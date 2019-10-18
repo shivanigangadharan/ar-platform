@@ -22,11 +22,13 @@ const Img = styled.img`
     width: 90%;
 `
 const imgs = {
-    titles: ['Skull', 'Heart', 'Machine', 'Building'],
+    titles: ['Skull', 'Heart', 'Machine', 'Building', 'Brain'],
     srcs: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsiHrktqbyNE33ilKhfjsv4Evq9lKkfbRZ_Nw5REgSmpqCLvfB5g",
         "https://i.ytimg.com/vi/O9V_vYS9D3c/maxresdefault.jpg",
         "https://img1.cgtrader.com/items/669704/19e3e45cc4/grid/engine-room-devices-3d-model-low-poly-max-obj-3ds-fbx-mtl-unitypackage.jpg",
-        "https://cdn.graphicha.xyz/2018/12/Buildings-Pack_post1.jpg"]
+        "https://cdn.graphicha.xyz/2018/12/Buildings-Pack_post1.jpg",
+        "https://static.turbosquid.com/Preview/2018/12/11__07_57_08/autodeskmaya2017drabotaanatomiyareliz2.0brain_2.0brain_ba.mb2.jpg77CE8219-F0A8-47E6-B0FC-209F843D9454Default.jpg"],
+    code: [1251205, 1251204, 1251202, , 1251201]
 };
 
 const ReqBox = styled.div`
@@ -80,7 +82,7 @@ function Card(props) {
                 Label: label,
                 Email: email,
                 Description: description,
-                Code: code,
+                // Code: code,
                 Animation: animation,
             }
         });
@@ -92,7 +94,7 @@ function Card(props) {
     const min = 1;
     const max = 7;
     // var code = Math.random() * (max - min);
-    var code = 1251204;
+    // var code = 125;
     var flag = 0;
     for (var i = 0; i < 4; i++) {
         if (imgs.titles[i] == props.text) {
@@ -102,7 +104,7 @@ function Card(props) {
                     <br /><br />
                     <Title> {props.text} </Title><br /><br />
                     <Button type="primary" onClick={e => setComponent(true)}> Buy </Button><br /><br />
-                    <div hidden={!component}>Your unique code is : {code} </div>
+                    <div hidden={!component}>Your unique code is : {imgs.code[i]} </div>
 
 
                 </ImgCard>

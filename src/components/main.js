@@ -18,8 +18,9 @@ const Box = styled.div`
 const Options = styled.div`
 
 `
-const Btns = styled(Button)`
+const Btns = styled.button`
     font-size: 130%;
+    background-img: url("https://www.insidehighered.com/sites/default/server_files/styles/large-copy/public/media/iStock_79110987_LARGE_0.jpg?itok=PSdK26iK")
     padding: 1%;
     padding-top:1%;
     padding-bottom: 1%;

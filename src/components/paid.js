@@ -2,12 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button, Input, Checkbox, Icon, Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
+import background from '../images/background.jpg';
 
 const Card = styled.div`
     box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
     width: 30%;
-    margin: 4%;
     padding: 1%;
+    color: white;
+    font-size: 150%;
+    margin-left: 7%;
 `
 const imgs = {
     titles: ['Skull', 'Heart', 'Machine', 'Building', 'Dino',],
@@ -29,26 +32,34 @@ const Title = styled.text`
 const Img = styled.img`
     width: 90%;
 `
+const Main = styled.div`
+    background-image: url(${background});
+    padding-top: 6%;
+    background-size: cover;
+`
 function Paid() {
     return (
         <center>
-            <Card>                <Link to="/">
-                <Icon type="caret-left" /> </Link>Paid Models</Card>
-            <Flex>
+            <Main>
                 <Card>
-                    <Img src={imgs.srcs[1]} />
-                    <br /><br />
-                    <Title> {imgs.titles[1]} </Title><br /><br />
-                    <Button type="primary"> Buy </Button>
-                </Card>
-                <Card>
-                    <Img src={imgs.srcs[3]} />
-                    <br /><br />
-                    <Title> {imgs.titles[3]} </Title><br /><br />
-                    <Button type="primary"> Buy </Button>
-                </Card>
-            </Flex>
-
+                    <Link to="/">
+                        <Icon type="caret-left" /> </Link>Paid Models
+                </Card><br /><br /><br /><br />
+                <Flex>
+                    <Card>
+                        <Img src={imgs.srcs[1]} />
+                        <br /><br />
+                        <Title> {imgs.titles[1]} </Title><br /><br />
+                        <Button type="primary"> Buy </Button>
+                    </Card>
+                    <Card>
+                        <Img src={imgs.srcs[3]} />
+                        <br /><br />
+                        <Title> {imgs.titles[3]} </Title><br /><br />
+                        <Button type="primary"> Buy </Button>
+                    </Card>
+                </Flex>
+            </Main>
 
         </center>
     )

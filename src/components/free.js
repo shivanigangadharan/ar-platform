@@ -2,12 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button, Input, Icon, Checkbox, Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
+import background from '../images/background.jpg';
 
 const Card = styled.div`
     box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
     width: 30%;
-    margin: 4%;
+    margin: 2%;
     padding: 1%;
+    color: white;
+    font-size: 150%;
 `
 const imgs = {
     titles: ['Skull', 'Heart', 'Machine', 'Building', 'Dino',],
@@ -29,33 +32,39 @@ const Title = styled.text`
 const Img = styled.img`
     width: 90%;
 `
+const Main = styled.div`
+    background-image: url(${background});
+    padding-top: 6%;
+    background-size: cover;
+`
 function Free() {
     return (
         <center>
-            <Card>                 <Link to="/">
-                <Icon type="caret-left" /></Link>Free Models</Card>
-            <Flex>
-                <Card>
-                    <Img src={imgs.srcs[0]} />
-                    <br /><br />
-                    <Title> {imgs.titles[0]} </Title><br /><br />
-                    <Button type="primary"> Buy </Button>
-                </Card>
-                <Card>
-                    <Img src={imgs.srcs[4]} />
-                    <br /><br />
-                    <Title> {imgs.titles[4]} </Title><br /><br />
-                    <Button type="primary"> Buy </Button>
-                </Card>
-                <Card>
-                    <Img src={imgs.srcs[2]} />
-                    <br /><br />
-                    <Title> {imgs.titles[2]} </Title><br /><br />
-                    <Button type="primary"> Buy </Button>
-                </Card>
-            </Flex>
+            <Main>
+                <Card>                 <Link to="/">
+                    <Icon type="caret-left" /></Link>Free Models</Card>
+                <Flex>
+                    <Card>
+                        <Img src={imgs.srcs[0]} />
+                        <br /><br />
+                        <Title> {imgs.titles[0]} </Title><br /><br />
+                        <Button type="primary"> Buy </Button>
+                    </Card>
+                    <Card>
+                        <Img src={imgs.srcs[4]} />
+                        <br /><br />
+                        <Title> {imgs.titles[4]} </Title><br /><br />
+                        <Button type="primary"> Buy </Button>
+                    </Card>
+                    <Card>
+                        <Img src={imgs.srcs[2]} />
+                        <br /><br />
+                        <Title> {imgs.titles[2]} </Title><br /><br />
+                        <Button type="primary"> Buy </Button>
+                    </Card>
+                </Flex>
 
-
+            </Main>
         </center>
     )
 }

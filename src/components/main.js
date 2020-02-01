@@ -3,55 +3,83 @@ import styled from 'styled-components';
 import { Input, Button } from 'antd';
 import Card from './card';
 import { Link } from 'react-router-dom';
+import background from '../images/background.jpg';
 
 const { Search } = Input;
 const MySearch = styled(Search)`
     width: 100%;
-    margin-top:3%;
+    background: transparent;
+    font-size: 200%;
 `
 const Box = styled.div`
-    width: 90%;
-    border: 0.5px solid lightgray;
-    margin-top: 5%;
-    padding: 3%;
-`
+    width: 85%;
+    
+    `
 const Options = styled.div`
-
+z-index: 100;
 `
 const Btns = styled.button`
-    font-size: 130%;
-    background-img: url("https://www.insidehighered.com/sites/default/server_files/styles/large-copy/public/media/iStock_79110987_LARGE_0.jpg?itok=PSdK26iK")
-    padding: 1%;
+    font-size: 150%;
+    padding-left: 3%;
+    padding-right: 3%;
     padding-top:1%;
     padding-bottom: 1%;
-    margin: 3%;
+    margin: 10%;
+    font-weight: 400;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
     text-align:center;
     vertical-align:middle;
+    background: none;
+`
+const Center = styled.div`
+background-image: url(${background});
+background-size:cover;
+background-repeat: none;
+z-index: -10;
+`
+const Heading = styled.text`
+    color: white;
+    font-size: 700%;
+    float: left;
+    margin-left: 7%;
+    margin-bottom: 5%;
+    margin-top: 6%;
+    font-weight: 100
+`
+const P = styled.text`
+    color: white;
+    
 `
 function Main() {
     const [word, setWord] = useState(null);
     console.log("Searched keyword = ", word);
     return (
-        <center>
-            <Box>
-                <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search AR models" />
-                <br /><br />
-                <Options hidden={word === null ? false : true}>
-                    <Link to="/free">
-                        <Btns type="primary"> FREE </Btns>
-                    </Link>
-                    <Link to="/paid">
-                        <Btns type="primary"> PAID </Btns>
-                    </Link><Link to="/customized">
-                        <Btns type="primary"> CUSTOMIZED </Btns>
-                    </Link>
+        <Center>
+            <center>
+                <Heading> SearchAR </Heading>
 
-                </Options>
-                <Card text={word} />
-                <br /><br />
-            </Box>
+                <Box><br />
 
-        </center>
+                    <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search AR models" />
+                    <br /><br />
+                    <Options hidden={word === null ? false : true}>
+                        <Link to="/free">
+                            <Btns type="primary"> Free </Btns>
+                        </Link>
+                        <Link to="/paid">
+                            <Btns type="primary"> Paid </Btns>
+                        </Link><Link to="/customized">
+                            <Btns type="primary"> Customized </Btns>
+                        </Link>
+
+                    </Options>
+                    <Card text={word} />
+                    <br /><br />
+                </Box>
+            </center>
+        </Center>
     )
 }
 

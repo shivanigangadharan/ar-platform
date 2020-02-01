@@ -14,7 +14,6 @@ import styled from 'styled-components';
 const Footer = styled.div`
     background: black;
     color: white;
-    margin-top: 20%;
     padding: 3%;
 `
 function App() {
@@ -24,9 +23,12 @@ function App() {
       'x-hasura-admin-secret': 'ar-platform'
     }
   });
+  const MyApolloProvider = styled(ApolloProvider)`
+  font-family: 'Poppins', sans-serif;
 
+`
   return (
-    <ApolloProvider client={client}>
+    <MyApolloProvider client={client}>
       <div>
         <Router>
           <Switch>
@@ -41,11 +43,9 @@ function App() {
         </Router>
       </div>
       <Footer>
-        Developed by:- <br /><br />Team tagAR<br />
-        Bharati Vidyapeeth's College of Engineering <br />
-        2019
+        Developed by:- <br /><br /> &copy; Team Clifford 2020 | Bharati Vidyapeeth's College of Engineering
       </Footer>
-    </ApolloProvider>
+    </MyApolloProvider>
   );
 }
 

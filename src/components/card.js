@@ -7,10 +7,16 @@ import { flowRight as compose } from 'lodash';
 import { addFormData } from '../queries/queries';
 import { graphql } from 'react-apollo';
 
+const H2 = styled.h2`
+    color: white;
+    font-weight: 400;
+    font-size: 200%;
+`
 const ImgCard = styled.div`
-    box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
-    width: 30%;
+border: 0.3px solid lightgray;
+width: 30%;
     padding: 1%;
+    color: white;
     `
 const Title = styled.text`
     font-size:160%;
@@ -32,13 +38,18 @@ const imgs = {
 };
 
 const ReqBox = styled.div`
-    box-shadow: 1px 1px 3px 1px lightgray;
     padding: 2%;
     width: 100%;
+    color: white;
 `
-const IP = styled(Input)`
+const IP = styled.input`
     width: 50%;
     margin: 2%;
+    background: none;
+    border: 1px solid white;
+    padding: 0.5%;
+    font-size: 180%;
+    border-radius: 4px;
 `
 
 function Card(props) {
@@ -118,35 +129,33 @@ function Card(props) {
     if (props.text != null && flag == 0) {
         return (
             <ReqBox>
-                <h2> The model you searched for is unavailable. You can request for the same, here: </h2>
+                <H2> The model you searched for is unavailable. You can request for the same, here: </H2>
                 <form onSubmit={handleSubmit}>
                     <IP type="text" placeholder="Enter your name" onChange={e => { setName(e.target.value) }} required />
                     <IP type="text" placeholder="Enter email id" onChange={e => { setEmail(e.target.value) }} required /><br />
                     <IP type="number" required placeholder="Enter phone number" onChange={e => { setPhone(e.target.value) }} required /><br />
                     <IP type="text" placeholder="Organization name" onChange={e => { setOrganization(e.target.value) }} /><br />
-                    <h3> Project details </h3>
-                    <ul>
-                        <li>
-                            <IP type="text" onChange={e => { setModel(e.target.value) }} placeholder="Model name" required />
-                        </li>
-                        <li><IP type="text" onChange={e => { setDescription(e.target.value) }} placeholder="Brief description of the project" required />
-                        </li>
-                        <li>
-                            <IP type="text" onChange={e => { setAnimation(e.target.value) }} placeholder="Animation details (if any)" />
-                        </li>
-                        <li><IP type="text" onChange={e => { setTutorial(e.target.value) }} placeholder="Tutorial details (if any)" />
-                        </li>
-                        <li>
-                            <Radio.Group onChange={e => { setMarker(e.target.value) }}>
-                                <Radio value="Marker"> Marker </Radio>
-                                <Radio value="Markerless"> Markerless </Radio>
-                            </Radio.Group>
-                        </li>
-                        <li>
-                            <Checkbox onChange={e => { setLabel(e.target.checked) }}>
-                                Labels </Checkbox>
-                        </li>
-                    </ul>
+                    <H2> Project details :</H2>
+
+                    <IP type="text" onChange={e => { setModel(e.target.value) }} placeholder="Model name" required />
+                    <IP type="text" onChange={e => { setDescription(e.target.value) }} placeholder="Brief description of the project" required />
+
+
+                    <IP type="text" onChange={e => { setAnimation(e.target.value) }} placeholder="Animation details (if any)" />
+
+                    <IP type="text" onChange={e => { setTutorial(e.target.value) }} placeholder="Tutorial details (if any)" />
+
+                    <br />
+                    <Radio.Group onChange={e => { setMarker(e.target.value) }}>
+                        <Radio value="Marker"> <span style={{ 'color': 'white' }}> Marker </span></Radio>
+                        <Radio value="Markerless"> <span style={{ 'color': 'white' }}> Markerles </span> </Radio>
+                    </Radio.Group>
+
+
+                    <Checkbox onChange={e => { setLabel(e.target.checked) }}>
+                        <span style={{ 'color': 'white' }}> Labels </span> </Checkbox>
+
+                    <br /><br />
 
                     <Button type="submit" htmlType="submit"> Request model </Button>
                 </form>

@@ -2,12 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button, Input, Checkbox, Icon, Descriptions } from 'antd';
 import { Link } from 'react-router-dom';
+import background from '../images/background.jpg';
 
 const Card = styled.div`
     box-shadow: 0.2px 0.2px 5px 0.2px lightgray;
     width: 30%;
-    margin: 4%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 5%
     padding: 1%;
+`
+const Main = styled.div`
+    background-image: url(${background});
+    padding-top: 6%;
+    background-size: cover;
+    color:white;
+    font-size:150%;
 `
 const imgs = {
     srcs: ["https://combatrifle.com/wp-content/uploads/2019/09/CROM-USA-Ruger-PC-Carbine-Chassis-400x250.jpg"]
@@ -27,22 +37,23 @@ const Img = styled.img`
 function Customized() {
     return (
         <center>
-            <Card>
-                <Link to="/">
-                    <Icon type="caret-left" /> </Link>Customized Models</Card>
-            <center>
-                <Flex>
-                    <Card>
-                        <Img src={imgs.srcs[0]} />
-                        <br /><br />
-                        <Title> Name of your model </Title><br /><br />
-                        <Button type="primary"> Order </Button>
-                    </Card>
+            <Main>
+                <Card>
+                    <Link to="/">
+                        <Icon type="caret-left" /> </Link>Customized Models</Card>
+                <center>
+                    <Flex>
+                        <Card>
+                            <Img src={imgs.srcs[0]} />
+                            <br /><br />
+                            <Title> Name of your model </Title><br /><br />
+                            <Button type="primary"> Order </Button>
+                        </Card>
 
-                </Flex>
-            </center>
+                    </Flex>
+                </center>
 
-
+            </Main>
 
         </center>
     )

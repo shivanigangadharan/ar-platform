@@ -76,7 +76,7 @@ function Main() {
 
                     </Options>
                     <Card text={word} />
-                    <br /><br />
+                    <br /><br /><br /><br />
                 </Box>
             </center>
         </Center>

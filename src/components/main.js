@@ -62,7 +62,7 @@ function Main() {
 
                 <Box><br />
 
-                    <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search AR models" />
+                    <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search AR models (Heart, Machine, Skull, Brain, etc)" />
                     <br /><br />
                     <Options hidden={word === null ? false : true}>
                         <Link to="/free">

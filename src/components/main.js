@@ -62,7 +62,7 @@ function Main() {
 
                 <Box><br />
 
-                    <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search Heart, Machine, Skull, Brain, etc" />
+                    <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search heart, machine, skull, brain, etc" />
                     <br /><br />
                     <Options hidden={word === null ? false : true}>
                         <Link to="/free">

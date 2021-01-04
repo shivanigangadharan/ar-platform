@@ -108,7 +108,8 @@ function Card(props) {
     // var code = 125;
     var flag = 0;
     for (var i = 0; i < 4; i++) {
-        if (imgs.titles[i] == props.text) {
+
+        if (imgs.titles[i].toLowerCase() == props.text) {
             return (
                 <ImgCard>
                     <Img src={imgs.srcs[i]} />
@@ -116,7 +117,6 @@ function Card(props) {
                     <Title> {props.text} </Title><br /><br />
                     <Button type="primary" onClick={e => setComponent(true)}> Buy </Button><br /><br />
                     <div hidden={!component}>Your unique code is : {imgs.code[i]} </div>
-
 
                 </ImgCard>
             )

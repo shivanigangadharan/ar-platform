@@ -13,7 +13,7 @@ const MySearch = styled(Search)`
 `
 const Box = styled.div`
     width: 85%;
-    
+
     `
 const Options = styled.div`
 z-index: 100;
@@ -50,7 +50,7 @@ const Heading = styled.text`
 `
 const P = styled.text`
     color: white;
-    
+
 `
 function Main() {
     const [word, setWord] = useState(null);
@@ -62,7 +62,7 @@ function Main() {
 
                 <Box><br />
 
-                    <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search AR models (Heart, Machine, Skull, Brain, etc)" />
+                    <MySearch enterButton onSearch={e => { setWord(e) }} placeholder="search Heart, Machine, Skull, Brain, etc" />
                     <br /><br />
                     <Options hidden={word === null ? false : true}>
                         <Link to="/free">
